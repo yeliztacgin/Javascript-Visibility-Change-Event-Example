@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>
+        Download starting in <span id="seconds">10</span> Seconds
+    </h3>
+
+    <script>
+        let seconds = 10,
+       span=document.getElementById('seconds');
+
+        const counter = () => {
+
+            if (seconds > 1) {
+                seconds -= 1
+                span.innerText = seconds
+
+            }
+            else {
+                clearInterval(countdown);
+                alert('BİTTİ')
+            }
+        }
+        let countdown = setInterval(counter, 1000);
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+
+                countdown = setInterval(counter, 1000)
+            }
+            else {
+                clearInterval(countdown)
+            }
+        })
+
+    </script>
+
+
+</body>
+</html>
